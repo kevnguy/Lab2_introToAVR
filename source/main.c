@@ -21,10 +21,8 @@ int main(void) {
 	unsigned tempB = 0x00;
     /* Insert your solution below */
     while (1) {
-	tempA = PINA & 0x02;
-	if(tempA == 0x01) {
-		tempB = 0x01;
-	}
+	tempA = PINA & 0x03;
+	tempB = (tempA == 0x01) ? 0x01 : 0x00;
 	PORTB = tempB;
     }
     return 1;
