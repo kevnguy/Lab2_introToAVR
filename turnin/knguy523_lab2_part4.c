@@ -32,7 +32,7 @@ int main(void) {
 	weightB = PINB;
 	weightC = PINC;
 	weightT = weightA + weightB + weightC;
-	if(weightT > 0x8C) // 140
+	if(weightT > 0x008C) // 140
 		PORTD = 0x01;
 	if((weightA - weightC > 0) && (weightA - weightC > 0x50)) // 80
 		PORTD |= 0x02;
@@ -45,7 +45,8 @@ int main(void) {
 		weightT <<= 1;
 */
 	
-	weightT &= 0xFC;	
+	weightT >>= 2;	
+	weightT &= 0x00FC;
 	PORTD |= weightT;
     }
     return 1;
